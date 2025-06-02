@@ -6,7 +6,7 @@ from datetime import date
 import crud
 from database import SessionLocal
 
-# Use a test date of 4/1/2024 to test the min_last_changed_date
+# Use a test date of 4/1/2024 to test the minimum_last_changed_date
 test_date = date(2024, 4, 1)
 
 @pytest.fixture(scope="function")
@@ -39,7 +39,7 @@ def test_get_all_performances(db_session):
 
 def test_get_new_performances(db_session):
     """Tests that the count of performances in the database is as expected when filtered by date"""
-    performances = crud.get_performances(db_session, limit=18000, min_last_changed_date=test_date)
+    performances = crud.get_performances(db_session, limit=18000, minimum_last_changed_date=test_date)
     assert len(performances) == 2711
 
 def test_get_player_count(db_session):
